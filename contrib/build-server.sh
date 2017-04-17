@@ -23,7 +23,7 @@ cd -
 
 cat << EOF > /etc/supervisor/conf.d/elx-dss.conf
 [program:java]
-command=/usr/bin/java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar /vagrant/target/elx-dss-0.1.1-jar-with-dependencies.jar
+command=/usr/bin/java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar /vagrant/dss-rest/target/dss-rest-5.0.jar
 environment=JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64,environment="vagrant"
 directory=/home/vagrant
 autostart=true
