@@ -21,10 +21,10 @@ cd /vagrant
 /bin/sh /vagrant/contrib/02-build-maven.sh
 cd -
 
-cat << EOF > /etc/supervisor/conf.d/npowersoapbridge.conf
+cat << EOF > /etc/supervisor/conf.d/elx-dss.conf
 [program:java]
-command=/usr/bin/java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar /vagrant/target/npower-soap-bridge-0.1.1-jar-with-dependencies.jar
-environment=JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64,npowerJSONSearchURLgas="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/quotes/gas/",npowerJSONSearchURLelec="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/quotes/elec/",jsonSearchAuthToken="7005381ff9f4b37296aea2f6898a566f13f6068a",environment="vagrant",translateJSONTranslation="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/tariffs-by-product-codes/",npowerJSONSearchURLdual="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/quotes/elecgas/",productListDiffURL="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/tariffs/changes/",suppliersByIdsURL="http://192.168.70.13:8000/v2/partner-resources/NPOWER_SOAP/suppliers-by-ids/"
+command=/usr/bin/java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar /vagrant/target/elx-dss-0.1.1-jar-with-dependencies.jar
+environment=JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64,environment="vagrant"
 directory=/home/vagrant
 autostart=true
 autorestart=true
