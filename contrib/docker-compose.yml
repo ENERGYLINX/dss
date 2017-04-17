@@ -1,0 +1,16 @@
+app:
+  image: energylinx/npowersoapbridge:{{BRANCH}}-latest
+  ports:
+    - "{{PORT}}:8000"
+  hostname: npowersoapbridge-{{BRANCH}}
+  environment:
+    npowerJSONSearchURLgas: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/quotes/gas/"
+    npowerJSONSearchURLelec: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/quotes/elec/"
+    jsonSearchAuthToken: "{{BACKEND_TOKEN}}"
+    translateJSONTranslation: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/tariffs-by-product-codes/"
+    npowerJSONSearchURLdual: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/quotes/elecgas/"
+    productListDiffURL: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/tariffs/changes/"
+    suppliersByIdsURL: "https://{{BACKEND_URL}}/v2/partner-resources/NPOWER_SOAP/suppliers-by-ids/"
+    defaultIncludedTestTariffs: "{{DEFAULT_INCLUDED_TEST_TARIFFS}}"
+    environment: master
+  restart: always
